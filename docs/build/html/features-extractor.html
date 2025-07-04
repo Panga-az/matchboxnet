@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feature Extractor &mdash; MatchboxNet 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Model For Audio Classification" href="audio-classification-model.html" />
+    <link rel="prev" title="Configuration" href="configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MatchboxNet
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feature Extractor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#matchboxnet.feature_extraction.MatchboxNetFeatureExtractor"><code class="docutils literal notranslate"><span class="pre">MatchboxNetFeatureExtractor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matchboxnet.feature_extraction.MatchboxNetFeatureExtractor.zero_mean_unit_var_norm"><code class="docutils literal notranslate"><span class="pre">MatchboxNetFeatureExtractor.zero_mean_unit_var_norm()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audio-classification-model.html">Model For Audio Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">Dataset</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MatchboxNet</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Feature Extractor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/features-extractor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="feature-extractor">
+<h1>Feature Extractor<a class="headerlink" href="#feature-extractor" title="Link to this heading"></a></h1>
+<p>The Feature Extractor classe used by MatchboxNet:
+MatchboxNetFeatureExtractor</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="matchboxnet.feature_extraction.MatchboxNetFeatureExtractor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matchboxnet.feature_extraction.</span></span><span class="sig-name descname"><span class="pre">MatchboxNetFeatureExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sampling_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_mfcc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchboxnet.feature_extraction.MatchboxNetFeatureExtractor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SequenceFeatureExtractor</span></code></p>
+<p>Feature extractor for MatchboxNet audio classification models.</p>
+<p>Implements feature preparation following the MatchboxNet design ( <a class="reference external" href="https://arxiv.org/pdf/2004.08531">https://arxiv.org/pdf/2004.08531</a>):
+- Extraction of MFCC features
+- Symmetric padding/truncation</p>
+<p>Link to original MatchboxNet paper:  <a class="reference external" href="https://arxiv.org/pdf/2004.08531">https://arxiv.org/pdf/2004.08531</a></p>
+<dl class="simple">
+<dt>The implementation covers:</dt><dd><ul class="simple">
+<li><p>MFCC computation (25 ms windows, 10 ms hop, 64 coefficients)</p></li>
+<li><p>Fixed-length framing (128 frames)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">matchboxnet.feature_extraction</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatchboxNetFeatureExtractor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feat_ext</span> <span class="o">=</span> <span class="n">MatchboxNetFeatureExtractor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raw_audio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">16000</span><span class="p">)</span>  <span class="c1"># 1-second audio at 16kHz</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">batch</span> <span class="o">=</span> <span class="n">feat_ext</span><span class="p">(</span><span class="n">raw_audio</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_values</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;input_values&quot;</span><span class="p">]</span>  <span class="c1"># shape (1, 64, 128)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sampling_rate</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>defaults to 16000</em>) – Sampling rate of input audio.</p></li>
+<li><p><strong>n_mfcc</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>defaults to 64</em>) – Number of MFCC coefficients to extract.</p></li>
+<li><p><strong>fixed_length</strong> (<em>int</em><em>, </em><em>optional</em><em>, </em><em>defaults to 128</em>) – Target number of time frames after padding/truncation.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments forwarded to SequenceFeatureExtractor.</p></li>
+<li><p><strong>Attributes</strong></p></li>
+<li><p><strong>mfcc_transform</strong> (<em>torchaudio.transforms.MFCC</em>) – MFCC computation transform.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="matchboxnet.feature_extraction.MatchboxNetFeatureExtractor.zero_mean_unit_var_norm">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zero_mean_unit_var_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#matchboxnet.feature_extraction.MatchboxNetFeatureExtractor.zero_mean_unit_var_norm" title="Link to this definition"></a></dt>
+<dd><p>Apply zero-mean, unit-variance normalization to feature arrays.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="audio-classification-model.html" class="btn btn-neutral float-right" title="Model For Audio Classification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Panga Azazia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
