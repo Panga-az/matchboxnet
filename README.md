@@ -19,7 +19,7 @@ PyTorch + Hugging Face Transformers implementation of [MatchboxNet](https://arxi
 ### Installation
 
 ```bash
-pip install matchboxnet
+pip install git+https://github.com/Panga-az/matchboxnet.git
 ```
 
 ## Usage
