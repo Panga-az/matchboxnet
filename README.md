@@ -11,7 +11,6 @@ PyTorch + Hugging Face Transformers implementation of [MatchboxNet](https://arxi
   - [Config the model](#Configthe-model)
   - [Prepare datasets for training](#Prepare-datasets-for-training)
   - [Using the model to train](#using-the-model-to-train)
-- [Running Tests](#running-tests)
 - [Contributing](#contributing)
 - [Citation](#citation)
 
