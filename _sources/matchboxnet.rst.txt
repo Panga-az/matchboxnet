@@ -1,0 +1,53 @@
+matchboxnet package
+===================
+
+Submodules
+----------
+
+matchboxnet.config module
+-------------------------
+
+.. automodule:: matchboxnet.config
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+matchboxnet.dataset module
+--------------------------
+
+.. automodule:: matchboxnet.dataset
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+matchboxnet.feature\_extraction module
+--------------------------------------
+
+.. automodule:: matchboxnet.feature_extraction
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+matchboxnet.model module
+------------------------
+
+.. automodule:: matchboxnet.model
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+matchboxnet.utils module
+------------------------
+
+.. automodule:: matchboxnet.utils
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: matchboxnet
+   :members:
+   :show-inheritance:
+   :undoc-members:
