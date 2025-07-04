@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matchboxnet"
+version = "0.1.0"
+description = "Implementation of MatchboxNet for audio classification with PyTorch + Hugging Face Transformers"
+readme = "README.md"
+license = "MIT" 
+authors = [
+  { name = "Panga Azazia", email = "kamatep37@gmail.com" },
+]
+dependencies = [
+  "torch>=1.6",
+  "torchaudio",
+  "transformers",
+  "datasets>=1.14.0",
+  "tf-keras",
+  "evaluate",
+  "librosa",
+  "numpy",
+  "accelerate>=0.26.0",
+  "transformers[torch]"
+]
+requires-python = ">=3.8"
+keywords = ["audio", "classification", "matchboxnet", "pytorch", "transformers"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Panga-Az/matchboxnet"
+Repository = "https://github.com/Panga-Az/matchboxnet"
+Documentation = "https://github.com/Panga-Az/matchboxnet#readme"
+
+[tool.setuptools.packages.find]
+include = ["matchboxnet*"]
