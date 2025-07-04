@@ -122,16 +122,6 @@ trainer.train()
 
 ```
 
-## Running Tests
-
-After installation, from project root:
-
-```bash
-pytest
-```
-
-All tests in `tests/` should pass.
-
 ## Contributing
 
 All contributions are welcome!
